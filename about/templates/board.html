@@ -1,0 +1,73 @@
+{% extends 'private.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+{% if LANGUAGE_CODE == 'ar' %}
+
+    <!-- Start Team -->
+    <div class="board">
+        <div class="container">
+          <!------------------------ Heading ------------------->
+          <div class="board-heading">
+            <h3>فريقنا</h3>
+          </div>
+          <hr class="line">
+  
+          <!----------------Fist Section about Front------------->
+          <div class="row all-info-boad">
+            {% for br in board %}
+
+            <!---------- First Member ------------------------->
+            
+            <div class="board-box-info col-md-2 col-6">
+              <img
+                src="{{ br.image.url }}"
+                alt="This is Pic"
+                title="Board Pic"
+              />
+              <h6>{{ br.name }}</h6>
+              <p>{{ br.job_title }}</p>
+            </div>
+            {% endfor %}
+
+            
+        </div>
+
+      </div>
+
+{% else %}
+
+<div class="board">
+  <div class="container">
+    <!------------------------ Heading ------------------->
+    <div class="board-heading">
+      <h3>our Board</h3>
+    </div>
+    <hr class="line">
+
+    <!----------------Fist Section about Front------------->
+    <div class="row all-info-boad">
+      {% for br in board %}
+
+      <!---------- First Member ------------------------->
+      
+      <div class="board-box-info col-md-2 col-6">
+        <img
+          src="{{ br.image.url }}"
+          alt="This is Pic"
+          title="Board Pic"
+        />
+        <h6>{{ br.name_en }}</h6>
+        <p>{{ br.job_title_en }}</p>
+      </div>
+      {% endfor %}
+
+      
+  </div>
+
+</div>
+
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+{% if LANGUAGE_CODE == 'ar' %}
+
+    <!-- '2' Start Code For background-img -->
+    <div class="background-img heading slider-about">
+        <img class="img-slider" src="{% static 'images/background.jpg' %}" alt="slider pic" title="slider" />
+    </div>
+    <!-- '2' End Code For background-img -->
+
+    <!-- '4' Start Code For EYC activity -->
+    <div class="activities container">
+        <h2>النشاطات</h2>
+        <div class="row content-activity">
+            <!------- Start first activity ------->
+            
+            {% for activity in activities %}
+
+            <div class="first-activity activity-box col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="activ-sec">
+                    <!-- Start tittle for section -->
+                    <div class="activ-head">
+                        <h4> {{ activity.title }} </h4>
+                    </div>
+                    <!-- Start tittle for section -->
+
+                    <!-- start info for section such as pic,paragraph -->
+                    <div class="activ-info">
+                        <img src='{{activity.image.url}}' title="activity pic" alt='alt activity pic'>
+                        <p>{{activity.description|truncatechars:400|linebreaks}}</p> 
+                    </div>
+                    <!-- End info for section such as pic,paragraph -->
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- '4' End Code For EYC activity -->
+
+    <!-- Start Code for Board -->
+    <div class="board container">
+        <h2> المسؤولين</h2>
+        <div class="board-info row">
+            <!-- start Information for first member -->
+            {% for board in board %}
+
+            <div class="first all-board col-lg-3 col-md-4 col-sm-6 col-12 ">
+                {% if board.image %}
+                <img src="{{board.image.url}}" alt="board pic" title="board pic" />
+                {% else %}
+                <img src="{% static 'images/noimage.png' %}" alt="board pic" title="board pic" />
+                {% endif %}
+                <h4>{{board.name}}</h4>
+                <p>{{board.title}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+    
+    <!-- End Code for Board -->
+    <!-- '6' Start Code For EYC branches -->
+    <div class="branches container">
+        <h2> فروع مجلس الشباب المصري </h2>
+        <div class="row content-branch">
+            <!------- Start first branch ------->
+            {% for branch in branches %}
+            <div class="first-branch branch-box col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="branch-sec">
+                    <!-- Image for Branch -->
+                    {% if branch.branch_image %}
+                    <div class="branch-img">
+                        <img src='{{branch.branch_image.url}}' title="branch pic" alt='alt branch pic'>
+                    </div>
+                    {% else %}
+                    <div class="branch-img">
+                        <img src="{% static 'images/loc_un.png' %}" title="branch pic" alt='alt branch pic'>
+                    </div>
+                    {% endif %}
+
+                    <!-- start info for section such as pic,paragraph -->
+                    <div class="branch-info">
+                        <h5>{{branch.branch_name}}</h5>
+                        <p>{{branch.branch_address}}</p>
+                        <button class="branch-but"> <a href="{{branch.branch_on_map}}" target="_blank">View Map</a> </button>
+                    </div>
+                    <!-- End info for section such as pic,paragraph -->
+                </div>
+            </div>
+            {% endfor %}
+
+            <!------- End first branch ------->
+
+        </div>
+    </div>
+    <!-- '6' End Code For EYC branches -->
+
+    <!-- '7' Start code for join in EYc-->
+    {% if switch %}
+    <div class="reg-form container">
+        <div class="row">
+            <div class=" reg col-12">
+                <h2>كيف تنضم إلينا ؟</h2>
+                <h6>إذا كنت ترغب في الانضمام إلى مجتمعنا ، فكل ما عليك فعله هو ملء النموذج بمعلومات محددة عنك ،
+                    ثم انتظر اتصال فريقنا معك</h6>
+                <button class="form-but"><a href="volunteering/">تطوع معنا</a></button>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="reg-form container">
+        <div class="row">
+            <div class=" reg col-12">
+                <h2>how to join us</h2>
+
+                <h3>
+                    Volunteering will open soon... wait for us
+                </h3>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+{% else %}
+
+    <!-- '2' Start Code For background-img -->
+    <div class="background-img heading slider-about">
+        <img class="img-slider" src="{% static 'images/background.jpg' %}" alt="slider pic" title="slider" />
+    </div>
+    <!-- '2' End Code For background-img -->
+
+    <!-- '4' Start Code For EYC activity -->
+    <div class="activities container">
+        <h2>our activities </h2>
+        <div class="row content-activity">
+            <!------- Start first activity ------->
+            
+            {% for activity in activities %}
+
+            <div class="first-activity activity-box col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="activ-sec">
+                    <!-- Start tittle for section -->
+                    <div class="activ-head">
+                        <h4> {{ activity.title_en }} </h4>
+                    </div>
+                    <!-- Start tittle for section -->
+
+                    <!-- start info for section such as pic,paragraph -->
+                    <div class="activ-info">
+                        <img src='{{activity.image.url}}' title="activity pic" alt='alt activity pic'>
+                        <p>{{activity.description_en|truncatechars:400|linebreaks}}</p> 
+                    </div>
+                    <!-- End info for section such as pic,paragraph -->
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- '4' End Code For EYC activity -->
+
+    <!-- Start Code for Board -->
+    <div class="board container">
+        <h2> Board </h2>
+        <div class="board-info row">
+            <!-- start Information for first member -->
+            {% for board in board %}
+
+            <div class="first all-board col-lg-3 col-md-4 col-sm-6 col-12 ">
+                {% if board.image %}
+                <img src="{{board.image.url}}" alt="board pic" title="board pic" />
+                {% else %}
+                <img src="{% static 'images/noimage.png' %}" alt="board pic" title="board pic" />
+                {% endif %}
+                <h4>{{board.name_en}}</h4>
+                <p>{{board.title_en}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+    
+    <!-- End Code for Board -->
+    <!-- '6' Start Code For EYC branches -->
+    <div class="branches container">
+        <h2> branches for EYC </h2>
+        <div class="row content-branch">
+            <!------- Start first branch ------->
+            {% for branch in branches %}
+            <div class="first-branch branch-box col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="branch-sec">
+                    <!-- Image for Branch -->
+                    {% if branch.branch_image %}
+                    <div class="branch-img">
+                        <img src='{{branch.branch_image.url}}' title="branch pic" alt='alt branch pic'>
+                    </div>
+                    {% else %}
+                    <div class="branch-img">
+                        <img src="{% static 'images/loc_un.png' %}" title="branch pic" alt='alt branch pic'>
+                    </div>
+                    {% endif %}
+
+                    <!-- start info for section such as pic,paragraph -->
+                    <div class="branch-info">
+                        <h5>{{branch.branch_name_en}}</h5>
+                        <p>{{branch.branch_address_en}}</p>
+                        <button class="branch-but"> <a href="{{branch.branch_on_map}}" target="_blank">View Map</a> </button>
+                    </div>
+                    <!-- End info for section such as pic,paragraph -->
+                </div>
+            </div>
+            {% endfor %}
+
+            <!------- End first branch ------->
+
+        </div>
+    </div>
+    <!-- '6' End Code For EYC branches -->
+
+    <!-- '7' Start code for join in EYc-->
+    {% if switch %}
+    <div class="reg-form container">
+        <div class="row">
+            <div class=" reg col-12">
+                <h2>how to join us</h2>
+                <h6>If you want to join our community all you have to do is to fill the form with specific Information about you, <br> then wait for our team contact with you </h6>
+                <button class="form-but"><a href="volunteering/">go to form</a></button>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="reg-form container">
+        <div class="row">
+            <div class=" reg col-12">
+                <h2>how to join us</h2>
+
+                <h3>
+                    Volunteering will open soon... wait for us
+                </h3>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+  
+{% endif %}
+  
+    <!-- '7' End code for join in EYc-->
+{% endblock body %}

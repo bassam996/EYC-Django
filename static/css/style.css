@@ -1,0 +1,353 @@
+/*********** For all website ***************/
+body {
+  font-family: "Raleway", sans-serif;
+}
+p {
+  color: #757677;
+}
+
+a {
+  text-decoration: none;
+}
+
+.slider .slide img,
+.news-page .news-page-img img,
+.single-page .single-page-img img {
+  height: 350px;
+  width: 100%;
+}
+
+h2 {
+  color: #213e7c;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+h3 {
+  text-transform: capitalize;
+}
+
+.break-line {
+  margin: 3% 12%;
+}
+
+i,
+svg {
+  color: #213e7c;
+}
+
+/******************************** Start Style for about page **************************/
+.header-nav {
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+}
+
+.board,
+.branches {
+  margin: 70px auto;
+}
+
+.main-header {
+  background-color: #213e7c;
+  height: 40px;
+}
+
+.main-header,
+.main-header .fi-main-header ul {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.main-header .fi-main-header ul li {
+  padding: 5px 15px;
+  list-style: none;
+}
+
+.main-header .fi-main-header ul li a,
+footer ul li a {
+  color: white;
+  font-size: 20px;
+}
+
+/** '1' Start Style for navbar **/
+.navbar {
+  background-color: #3b5998;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.navbar .logo-pic {
+  width: 200px;
+  height: 50px;
+  padding-right: 10px;
+}
+
+.nav-item a { color: white; }
+
+.nav-item a:hover { color: white ;}
+
+li .dropdown-item,
+li .dropdown-item:hover { color: black; }
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link:hover { color: #213e7c;}
+
+.navbar .container-fluid ul { padding: 0px 20px; }
+
+.navbar .container-fluid ul li a {
+  padding-left: 15px;
+  font-size: 18px;
+  font-weight: 550px;
+}
+
+/** '1' End Code For Navbar **/
+
+/** '7' Start style for footer **/
+footer {
+  background-color: #213e7c;
+  height: 100%;
+  margin-top: 40px;
+  padding: 20px 0px;
+}
+
+footer ul li { list-style: none; }
+
+footer ul li {margin-bottom: 12px;}
+
+footer ul li a:hover,
+footer .copy-r:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+footer .copy-r {
+  color: white;
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+footer ul i {
+  color: white;
+  margin-right: 18px;
+  margin-bottom: 29px;
+}
+footer ul .instagram {color: #bc2a8d;}
+footer ul .twitter {color: #1da1f2;}
+footer ul .youtube {color: #E62117;}
+
+footer ul h5 {color: burlywood;}
+footer ul h5 a {color: white;}
+
+/** '7' End style for footer **/
+
+/* Container holding the image and the text */
+.container .sec-heading h3 {
+  text-transform: capitalize;
+  padding: 15px 0px;
+  color: #213e7c;
+  font-weight: bold;
+}
+
+.container .home-sec-row {
+  margin-bottom: 10px;
+}
+
+.container .img-section {
+  position: relative;
+  text-align: center;
+  color: white;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.container .img-section img {
+  width: 300px;
+  height: 300px;
+}
+
+.container .img-section:hover,
+.media-page .media-page-info .media-page-box .media-box-info:hover {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
+}
+
+.container .home-sec-row .img-section .bottom-right p {
+  border: 1px solid #9ab4ce;
+  color: black;
+  background-color: #f3f5f7;
+  padding: 7px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.container .home-sec-tech-row section {
+  width: 100%;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: -12px;
+  right: 16px;
+}
+/************* End Style For Home *****************/
+
+/************* Start Style For Parternes Page **************/
+/* style for Slider "Slider Box" */
+.slider-indicator button {
+  margin: 15px;
+  width: 20px;
+  height: 10px;
+}
+
+.slider-indicator button:hover {
+  outline: none;
+}
+
+/* Style for First Section "Partnerships  Box" */
+.Partnership .partnership-heading,
+.news-page .news-page-info .news-heading,
+.board .container .board-heading {
+  background-color: #213e7c;
+  padding: 10px 25px;
+  margin-top: 50px;
+  color: white;
+}
+
+/* Style for Second Section "Partnerships  Box" */
+.Partnership .Partnership-info {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.Partnership .Partnership-info ul li {
+  padding-bottom: 12px;
+}
+/************* End Style For Parternes Page **************/
+
+/***************  Start Style for Post News  ******************/
+.news-page .news-page-info .news-page-box .news-box-info {
+  margin-top: 30px;
+  margin-bottom: 70px;
+  height: 370px;
+  cursor: pointer;
+}
+
+.news-page .news-page-info .news-page-box .news-box-info img {
+  width: 97%;
+  height: 80%;
+}
+
+.news-page .news-page-info .media-title {
+  text-align: center;
+}
+
+.news-page .news-page-info .news-page-box .news-box-info .news-info {
+  border: 1px solid #9ab4ce;
+  width: 97%;
+  padding: 15px;
+}
+
+.news-page .news-page-info .news-page-box .news-box-info .news-info h3 {
+  text-transform: capitalize;
+  color: #213e7c;
+}
+/***************  End Style for Post News  ******************/
+
+/******************** Start Style for Single page *******************/
+.single-page .single-page-info h3 {
+  color: #213e7c;
+  text-transform: capitalize;
+  padding-top: 25px;
+}
+
+/* Style for singleMedia page */
+.single-media-infoo h4 {
+  display: inline-block;
+  color: #213e7c;
+}
+
+.single-media-infoo a {
+  float: right;
+  padding-top: 7px;
+}
+
+/******************** End Style for Single page *******************/
+
+/******************** Start Style for Home page *******************/
+/*** Start Style for any background-img ***/
+.slider-home img,
+.slider-about img,
+.single-event .single-event-img img {
+  height: 500px;
+  width: 100%;
+}
+/*** End Style for any background-img ***/
+/** Start Style for counter **/
+.counters h2 {
+  margin: 30px auto;
+}
+
+.counters .content-counter {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.counters .content-counter .counter-box {
+  padding-bottom: 30px;
+}
+
+/** End Style for counter **/
+/******************** End Style for Home page *******************/
+
+/** '5' Start style Board for EYC **/
+
+.board .container .board-heading {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.team .container .line {
+  width: 700px;
+  box-shadow: 1px 1px #337ab7;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.board .container .all-info-boad .board-box-info h6 {
+  text-transform: uppercase;
+  color: #213e7c;
+  padding: 15px;
+}
+
+.board .container .all-info-boad .board-box-info p {
+  color: #757677;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
+.board .container .all-info-boad .board-box-info img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+/** '5' End style Board for EYC **/
+
+.form-group label {
+  display: none;
+}
+
+.fake-div {
+  width:100%;
+  height: 1280px;
+  position:relative;
+}

@@ -1,0 +1,36 @@
+{% extends 'private.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block content %}
+
+{% if LANGUAGE_CODE == 'ar' %}
+
+
+<form method="post" class="container mt-5">
+  <h3 class='text-center'>تطوع معنا</h3> <br>
+  {% csrf_token %}
+  {% bootstrap_form volunteering %}
+  {% buttons %}
+  <button class="btn btn-primary mt4" type="submit" >ارسل البيانات
+  </button> 
+  {% endbuttons %}      
+</form>   
+
+{% else %}
+
+<form method="post" class="container mt-5">
+  <h3 class='text-center'>Volunteering with us</h3> <br>
+  {% csrf_token %}
+  {% bootstrap_form volunteering %}
+  {% buttons %}
+  <button class="btn btn-primary mt4" type="submit" >Send Data
+  </button> 
+  {% endbuttons %}      
+</form>  
+
+{% endif %}
+
+
+
+{% endblock content %}

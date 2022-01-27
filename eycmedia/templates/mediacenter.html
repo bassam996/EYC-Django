@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+
+{% if LANGUAGE_CODE == 'ar' %}
+
+
+<div class="news-page">
+  <!-- Parent Div -->
+  <!-- Background img for news page -->
+  <div class="news-page-img">
+    <img src="{% static 'images/post.jpg' %}" alt="post pic" title="post pic" />
+  </div>
+
+  <!-- Code for news sections -->
+  <section class="container news-page-info">
+    <!-- Heading for this section -->
+    <div class="news-heading">
+      <h3>مركز الإعلام</h3>
+    </div>
+    <!-- First Row -->
+    <div class="row news-page-box">
+      <section
+        class="news-box-info col-md-6 col-12"
+        onclick="OpenSingleRadioPage()"
+      >
+       <a href="/mediacenter/photos/">
+        <img src="{% static 'images/photos.jpg' %}" alt="New Pic" /> </a>
+        <div class="news-info">
+          <h3 class="media-title">الصور</h3>
+        </div>
+      </section>
+      <section
+        class="news-box-info col-md-6 col-12"
+        onclick="OpenSingleRadioPage()"
+      >
+        <a href="/mediacenter/videos/">
+        <img src="{% static 'images/videos.jpg' %}" alt="New Pic" /></a>
+        <div class="news-info">
+          <h3 class="media-title">المقاطع المرئيه</h3>
+        </div>
+      </section>
+    </div>
+  </section>
+</div>
+<!-- '2' End code for Post News-->
+
+{% else %}
+<div class="news-page">
+  <!-- Parent Div -->
+  <!-- Background img for news page -->
+  <div class="news-page-img">
+    <img src="{% static 'images/post.jpg' %}" alt="post pic" title="post pic" />
+  </div>
+
+  <!-- Code for news sections -->
+  <section class="container news-page-info">
+    <!-- Heading for this section -->
+    <div class="news-heading">
+      <h3>Media Center</h3>
+    </div>
+    <!-- First Row -->
+    <div class="row news-page-box">
+      <section
+        class="news-box-info col-md-6 col-12"
+        onclick="OpenSingleRadioPage()"
+      >
+       <a href="/mediacenter/photos/">
+        <img src="{% static 'images/photos.jpg' %}" alt="New Pic" /> </a>
+        <div class="news-info">
+          <h3 class="media-title">Photos</h3>
+        </div>
+      </section>
+      <section
+        class="news-box-info col-md-6 col-12"
+        onclick="OpenSingleRadioPage()"
+      >
+        <a href="/mediacenter/videos/">
+        <img src="{% static 'images/videos.jpg' %}" alt="New Pic" /></a>
+        <div class="news-info">
+          <h3 class="media-title">Videos</h3>
+        </div>
+      </section>
+    </div>
+  </section>
+</div>
+{% endif %}
+{% endblock body %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+
+{% if LANGUAGE_CODE == 'ar' %}
+
+
+<!-- "3" start Code for Slider -->
+<div class="Branches-page news-page">
+    <!-- Parent Div -->
+    <!-- Background img for Branches page -->
+    <div class="Branches-page-img news-page-img">
+      <img src="{% static 'images/post.jpg' %}" alt="post pic" title="post pic" />
+    </div>
+
+    <!-- Code for Branches sections -->
+    <section class="container Branches-page-info news-page-info">
+      <!-- Heading for this section -->
+      <div class="Branches-heading news-heading">
+        <h3>الفروع</h3>
+      </div>
+      <!-- First Row -->
+      <div class="row Branches-page-box news-page-box">
+          {% for branch in branches %}
+        <section class="Branches-box-info news-box-info col-md-4 col-12">
+            <a href="{{branch.branch_on_map}}" target="_blank">
+          <img src="{{branch.branch_image.url}}" alt="New Pic" /> </a>
+          <div class="Branches-info news-info">
+            <h3 class="news-title">{{branch.branch_name}}</h3>
+          </div>
+        </section>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+{% else %}
+
+<div class="Branches-page news-page">
+  <!-- Parent Div -->
+  <!-- Background img for Branches page -->
+  <div class="Branches-page-img news-page-img">
+    <img src="{% static 'images/post.jpg' %}" alt="post pic" title="post pic" />
+  </div>
+
+  <!-- Code for Branches sections -->
+  <section class="container Branches-page-info news-page-info">
+    <!-- Heading for this section -->
+    <div class="Branches-heading news-heading">
+      <h3>Branches</h3>
+    </div>
+    <!-- First Row -->
+    <div class="row Branches-page-box news-page-box">
+        {% for branch in branches %}
+      <section class="Branches-box-info news-box-info col-md-4 col-12">
+          <a href="{{branch.branch_on_map}}" target="_blank">
+        <img src="{{branch.branch_image.url}}" alt="New Pic" /> </a>
+        <div class="Branches-info news-info">
+          <h3 class="news-title">{{branch.branch_name_en}}</h3>
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+{% endif %}
+
+{% endblock body %}

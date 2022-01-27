@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block body %}
+
+{% if LANGUAGE_CODE == 'ar' %}
+
+
+<div class="news-page sig-media-page">
+    <!-- Parent Div -->
+    <!-- Background img for news page -->
+    <div class="news-page-img">
+      <img src="{% static 'images/post.jpg' %}" alt="post pic" title="post pic" />
+    </div>
+
+    
+    <!-- Code for news sections -->
+    <section class="container news-page-info single-page-mmedia">
+      <!-- Heading for this section -->
+      <div class="news-heading">
+        <h3>الراديو</h3>
+      </div>
+
+      <div >
+        <h2 class='mt-4'> اختيار الموسم</h2>
+        <form method="GET" class='container text-center' >
+          {% bootstrap_form filter.form %} <br>
+          {% buttons %}
+          <button type="submit" class="btn btn-primary"> اختر الموسم </button>
+          {% endbuttons %}
+          </form>
+      </div>
+
+
+      <!-- First Row -->
+      <div class="row news-page-box single-page-media">
+        {% for e in v_episode %}
+        <section class="news-box-info single-media-infoo col-md-4 col-12">
+          <img src="{{ e.episode_image.url }}" alt="New Pic" />
+          <div class="news-info">
+            <h4 class="media-title">{{ e.episode_name }}</h4>
+            <a href="{{e.episode_url}}" target="_blank">! شاهد الآن </a>
+          </div>
+        </section>
+        {% endfor %}
+       
+      </div>
+    </section>
+</div>
+
+    
+{% else %}
+
+
+
+<div class="news-page sig-media-page">
+  <!-- Parent Div -->
+  <!-- Background img for news page -->
+  <div class="news-page-img">
+    <img src="{% static 'images/post.jpg' %}" alt="post pic" title="post pic" />
+  </div>
+
+  
+  <!-- Code for news sections -->
+  <section class="container news-page-info single-page-mmedia">
+    <!-- Heading for this section -->
+    <div class="news-heading">
+      <h3>Media</h3>
+    </div>
+
+    <div >
+      <h2 class='mt-4'> Select Season</h2>
+      <form method="GET" class='container text-center' >
+        {% bootstrap_form filter.form %} <br>
+        {% buttons %}
+        <button type="submit" class="btn btn-primary"> Select Season </button>
+        {% endbuttons %}
+        </form>
+    </div>
+
+
+    <!-- First Row -->
+    <div class="row news-page-box single-page-media">
+      {% for e in v_episode %}
+      <section class="news-box-info single-media-infoo col-md-4 col-12">
+        <img src="{{ e.episode_image.url }}" alt="New Pic" />
+        <div class="news-info">
+          <h4 class="media-title">{{ e.episode_name_en }}</h4>
+          <a href="{{e.episode_url}}" target="_blank">Watch Now !</a>
+        </div>
+      </section>
+      {% endfor %}
+     
+    </div>
+  </section>
+</div>
+
+{% endif %}
+
+
+
+{% endblock body %}

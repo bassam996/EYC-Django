@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+
+{% if LANGUAGE_CODE == 'ar' %}
+
+    <!-- '2' Start code for Single Page information-->
+    <div class="single-page">
+        <div class="single-page-img">
+            <img class="" src="{{womendetail.image.url}}" alt="Single-page" title="Single-page" />
+        </div>
+        <div class="container single-page-info">
+            <h3>{{womendetail.title}}</h3>
+            <p>{{womendetail.desc|safe}}</p> 
+        </div>
+    </div>
+    <!-- '2' End code for Event information-->
+
+{% else %}
+
+<div class="single-page">
+    <div class="single-page-img">
+        <img class="" src="{{womendetail.image.url}}" alt="Single-page" title="Single-page" />
+    </div>
+    <div class="container single-page-info">
+        <h3>{{womendetail.title_en}}</h3>
+        <p>{{womendetail.desc_en|safe}}</p> 
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock body %}

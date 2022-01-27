@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load bootstrap4 %}
+{% load i18n %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- link code for icon link in top of page -->
+    <link rel="shortcut icon" href="{% static 'images/logo.jpg' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+    <!-------------- Start Font Awesome link --------------->
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+    <!------------ End Font-awesome links ------------>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendor/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/owl.theme.default.min.css' %}">    <title>Branches</title>
+  </head>
+  <body onscroll="HandleScroll()" >
+
+    {% if LANGUAGE_CODE == 'ar' %}
+
+    <!-- '1' Start Header -->
+      <header class="main-header row " id="heeader">
+          <div class="fi-main-header col-12" >
+              <ul>
+                  <li> <a href="/board/">الفريق</a> </li>
+                  <li> <a href="/volunteering/">إنضم إلينا</a> </li>
+                  <li> <a href="/radio/">الراديو</a> </li>
+                  <li> <a href="/branches/">الفروع</a> </li>
+                  <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    <li> <button type="submit"  name="language" value="en" class = 'btn btn-outline-primary '>English</button></li>
+                    {% else %}
+                    <li> <button type="submit"  name="language" value="ar" class='btn btn-outline-primary '>العربية</button> </li>
+                    {% endif %}
+                  </form>
+                 <li class="icon"> <a href="/"> <i class="fas fa-home" style="color: white;"></i> </a> </li>
+              </ul>
+          </div>
+      </header>
+      <!-- '2' End Header -->
+  
+  
+      <!-- '2' Start Code for navbar -->
+      <nav class="navbar navbar-expand-lg" id="nnav">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img class="logo-pic" src="{% static 'images/logo web M.jpg' %}" alt="Logo" title="Logo" /></a>
+            <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <!-- First DropDown -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        وحدات عمل المجلس
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/carriers/peace/peace_details" onclick="OpenSingleFieldsPage()">السلام & الأمن</a></li>
+                        <li><a class="dropdown-item" href="/carriers/political/political_details"  onclick="OpenSingleFieldsPage()">المشاركه السياسيه</a></li>
+                        <li><a class="dropdown-item" href="/carriers/women/women_details"  onclick="OpenSingleFieldsPage()">المرأه</a></li>
+                        <li><a class="dropdown-item" href="/carriers/human_rights/humanrights_details"  onclick="OpenSingleFieldsPage()">حقوق الإنسان</a></li>
+                        <li><a class="dropdown-item" href="/carriers/environment/environment_details"  onclick="OpenSingleFieldsPage()">البيئه</a></li>
+                      </ul>
+                    </li>
+  
+                    <!-- Second DropDown -->
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        منشورات المجلس
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/units/research/research_details"  onclick="OpenSingleFieldsPage()">الأبحاث & الدراسات</a></li>
+                        <li><a class="dropdown-item" href="/units/media/media_details" > الإعلام</a></li>
+                        <li><a class="dropdown-item" href="/units/youth/youth_details"  onclick="OpenSingleFieldsPage()">الشباب & الطلائع</a></li>
+                        <li><a class="dropdown-item" href="/units/technology/tech_details"  onclick="OpenSingleFieldsPage()">تكنولوجيا</a></li>
+                      </ul>
+                    </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/news_events/">الأخبار</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/ourParteners/">الشراكات</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/mediacenter/">المركز الإعلامي</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      {% else %}
+
+      <header class="main-header row " id="heeader">
+        <div class="fi-main-header col-12" >
+            <ul>
+                <li> <a href="/board/">Board</a> </li>
+                <li> <a href="/volunteering/">Join Us</a> </li>
+                <li> <a href="/radio/">Radio</a> </li>
+                <li> <a href="/branches/">Branches</a> </li>
+                <form action="{% url 'set_language' %}" method="post">
+                  {% csrf_token %}
+                  {% get_current_language as LANGUAGE_CODE %}
+                  {% if LANGUAGE_CODE == 'ar' %}
+                  <li> <button type="submit"  name="language" value="en" class = 'btn btn-outline-primary '>English</button></li>
+                  {% else %}
+                  <li> <button type="submit"  name="language" value="ar" class='btn btn-outline-primary '>العربية</button> </li>
+                  {% endif %}
+                </form>
+                <li class="icon"> <a href="/"> <i class="fas fa-home" style="color: white;"></i> </a> </li>
+            </ul>
+        </div>
+    </header>
+    <!-- '2' End Header -->
+
+
+    <!-- '2' Start Code for navbar -->
+    <nav class="navbar navbar-expand-lg" id="nnav">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><img class="logo-pic" src="{% static 'images/logo web M.jpg' %}" alt="Logo" title="Logo" /></a>
+          <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- First DropDown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      EYC Work Fields
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/carriers/peace/peace_details" onclick="OpenSingleFieldsPage()">Peace & Security</a></li>
+                      <li><a class="dropdown-item" href="/carriers/political/political_details"  onclick="OpenSingleFieldsPage()">Political Participation</a></li>
+                      <li><a class="dropdown-item" href="/carriers/women/women_details"  onclick="OpenSingleFieldsPage()">Women </a></li>
+                      <li><a class="dropdown-item" href="/carriers/human_rights/humanrights_details"  onclick="OpenSingleFieldsPage()">Human Rights </a></li>
+                      <li><a class="dropdown-item" href="/carriers/environment/environment_details"  onclick="OpenSingleFieldsPage()">Environment</a></li>
+                    </ul>
+                  </li>
+
+                  <!-- Second DropDown -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      EYC Publications
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/units/research/research_details"  onclick="OpenSingleFieldsPage()">Research & Studies</a></li>
+                      <li><a class="dropdown-item" href="/units/media/media_details" > Media Center</a></li>
+                      <li><a class="dropdown-item" href="/units/youth/youth_details"  onclick="OpenSingleFieldsPage()">Youth & Pie youth </a></li>
+                      <li><a class="dropdown-item" href="/units/technology/tech_details"  onclick="OpenSingleFieldsPage()">Technology</a></li>
+                    </ul>
+                  </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/news_events/">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/ourParteners/">Partnership</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/mediacenter/">Media Center</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {% endif %}
+  
+
+{% block content %}
+
+
+
+{% endblock content %}
+
+
+
+<footer>
+
+  {% if LANGUAGE_CODE == 'ar' %}
+
+
+  <div class="container">
+      <div class="row footer-content">
+          <div class="copy-right col-md-4 col-12">
+              <ul>
+                  <li> <a href="/board/">الفريق</a> </li>
+                  <li> <a href="/branches/">الفروع</a> </li>
+                  <li> <a href="/radio/">الراديو</a> </li>
+                  <li> <a href="/volunteering/"> إنضم إلينا</a> </li>
+                  <li> <a href="/carriers/peace/peace_details">السلام & الأمن</a> </li>
+                  <li> <a href="/carriers/political/political_details">المشاركه السياسيه</a> </li>
+              </ul>
+              <!-- &copy;2021 EYC.All right recived -->
+          </div>
+          <div class="info-links col-md-4 col-12">
+              <ul>
+                  
+                  <li> <a href="/carriers/women/women_details">المرأه</a> </li>
+                  <li> <a href="/carriers/human_rights/humanrights_details">حقوق الإنسان</a> </li>
+                  <li> <a href="/carriers/environment/environment_details">البيئه</a> </li>
+                  <li> <a href="/units/research/research_details">الأبحاث & الدراسات</a> </li>
+                  <li> <a href="/units/media/media_details">الإعلام</a> </li>
+                  <li> <a href="/units/youth/youth_details">الشباب & الطلائع</a> </li>
+                  <li> <a href="/units/technology/tech_details">تكنولوجيا</a> </li>
+              </ul>
+          </div>
+
+          <div class="footer-contact col-md-4 col-12">
+              <ul>
+                  <a href="https://www.facebook.com/eycd2030"><i class="facebook fab fa-facebook-f fa-2x"></i></a>
+                  <a href="https://instagram.com/egyptyouthcouncil?utm_medium=copy_link fa-2x"><i class="instagram fab fa-instagram fa-2x"></i></a>
+                  <a href="https://www.linkedin.com/in/eycd1/"><i class="linkedin fab fa-linkedin-in fa-2x"></i></a>
+                  <a href="https://twitter.com/eycd2021"><i class="twitter fab fa-twitter fa-2x"></i></a> 
+                  <a href="https://www.youtube.com/channel/UC8eM2EA1QvoHELFsE43Yj_g" > <i class="fab fa-youtube fa-2x youtube"></i> </a>
+                  <h5>
+                      تم تطوير الواجهه الأماميه بواسطة : <br/> 
+                      <a href="https:www.linkedin.com/in/esraa-elshibly-2172001aa" >
+                          إسراء الشلبي
+                      </a>
+                  </h5>
+                  <br/>
+                  <h5>
+                      تمت البرمجه الخلفيه بواسطة : <br/>
+                      <a href="https://www.facebook.com/BassamOfficial" >
+                          بسام أحمد
+                      </a>
+                  </h5>
+
+                  <div class="copy-r">
+                    &copy;2021 جميع الحقوق محفوظه لمجلس الشباب المصري
+                  </div>
+              </ul> 
+          </div>
+      </div>
+      
+  </div>
+
+  {% else %}
+
+  
+  <div class="container">
+    <div class="row footer-content">
+        <div class="copy-right col-md-4 col-12">
+            <ul>
+                <li> <a href="/board/">Board</a> </li>
+                <li> <a href="/branches/">Branches</a> </li>
+                <li> <a href="/radio/">Radio</a> </li>
+                <li> <a href="/volunteering/"> Join Us</a> </li>
+                <li> <a href="/carriers/peace/peace_details">Peace & Security</a> </li>
+                <li> <a href="/carriers/political/political_details">Political Participation</a> </li>
+            </ul>
+            <!-- &copy;2021 EYC.All right recived -->
+        </div>
+        <div class="info-links col-md-4 col-12">
+            <ul>
+                
+                <li> <a href="/carriers/women/women_details">Women </a> </li>
+                <li> <a href="/carriers/human_rights/humanrights_details">Human Rights</a> </li>
+                <li> <a href="/carriers/environment/environment_details">Environment</a> </li>
+                <li> <a href="/units/research/research_details">Research & Studies</a> </li>
+                <li> <a href="/units/media/media_details">Media</a> </li>
+                <li> <a href="/units/youth/youth_details">Youth & Pie youth </a> </li>
+                <li> <a href="/units/technology/tech_details">Technology</a> </li>
+            </ul>
+        </div>
+
+        <div class="footer-contact col-md-4 col-12">
+            <ul>
+                <a href="https://www.facebook.com/eycd2030"><i class="facebook fab fa-facebook-f fa-2x"></i></a>
+                <a href="https://instagram.com/egyptyouthcouncil?utm_medium=copy_link fa-2x"><i class="instagram fab fa-instagram fa-2x"></i></a>
+                <a href="https://www.linkedin.com/in/eycd1/"><i class="linkedin fab fa-linkedin-in fa-2x"></i></a>
+                <a href="https://twitter.com/eycd2021"><i class="twitter fab fa-twitter fa-2x"></i></a> 
+                <a href="https://www.youtube.com/channel/UC8eM2EA1QvoHELFsE43Yj_g" > <i class="fab fa-youtube fa-2x youtube"></i> </a>
+                <h5>
+                    Front-End developed by: <br/> 
+                    <a href="https:www.linkedin.com/in/esraa-elshibly-2172001aa" >
+                        Esraa Elshibly
+                    </a>
+                </h5>
+                <br/>
+                <h5>
+                    Back-End developed by: <br/>
+                    <a href="https://www.facebook.com/BassamOfficial" >
+                        Bassam Ahmed
+                    </a>
+                </h5>
+
+                <div class="copy-r">
+                    &copy;2021 EYC.All right recived
+                </div>
+            </ul> 
+        </div>
+    </div>
+    
+</div>
+
+  {% endif %}
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="{% static 'js/main.js' %}" ></script>
+<script src="{% static 'js/script.js' %}" ></script>
+</body>
+</html>

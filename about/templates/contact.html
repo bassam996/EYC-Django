@@ -1,0 +1,32 @@
+{% extends 'private.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+
+
+
+{% if messages %}
+
+<div class=" contatiner messages text-center mt-5">
+<div class="alert alert-success container" role="alert">
+  {% for message in messages %}
+  <strong>{{ message }}</strong>
+  {% endfor %}
+</div>
+</div>
+
+{% endif %}
+
+
+<form method="post" class="container mt-5 ">
+  <h3 class='text-center'>Contact US</h3> <br>
+  {% csrf_token %}
+  {% bootstrap_form contact %}
+  {% buttons %}
+  <button class="btn btn-primary" type="submit" >Contact US
+  </button>
+  {% endbuttons %}      
+</form> 
+
+
+{% endblock content %}
